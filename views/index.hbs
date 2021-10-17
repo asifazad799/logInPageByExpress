@@ -1,11 +1,11 @@
  <section class="mt-5 pt-5">
         <div class="container col-12 p-0 col-sm-9 col-md-7 col-lg-4 pt-5 mt-4">
             <div class="row pb-4" style="background-color: rgb(20, 238, 202); border-radius: 6px;">
-                <form class="pt-4 " action="/submit" method="POST">
+                <form id="subform" class="pt-4 " action="/submit" method="POST">
                    <h3>Log in</h3>
                    <div class="mb-3">
                         <label class="form-label">Email address</label>
-                        <input type="email" class="form-control"  name="email" aria-describedby="emailHelp">
+                        <input type="email" class="form-control"  name="email" >
                         {{#if emailErr}}
                         
                             <p class="text-danger fw-8 fs-9">user name did not match</p>
@@ -14,7 +14,7 @@
                     </div>
                     <div class="mb-3">
                         <label  class="form-label">Password</label>
-                        <input type="password" class="form-control" name="password">
+                        <input type="password" class="form-control" name="password" >
                          {{#if passwordErr}}
                             
                             <p class="text-danger fw-8 fs-9">password did not match</p>
@@ -22,14 +22,11 @@
                         {{/if}}
                     </div>
                     <div class="cl-lg-4 text-center mb-3 pt-3">
-                        {{#if emtyErr}}
-                            
-                            <p class="text-danger fw-8 fs-9">Should not be emty</p>
-                            
-                        {{/if}}
-                        <button type="submit" class="rounded p-2 border border-primary  btn bg-white text-black">Log in</button>
+                        <input type="submit" value="Log In" class="rounded p-2 border border-primary  btn bg-white text-black">
                     </div>
                   </form>
             </div>
         </div>
+    
     </section>
+    

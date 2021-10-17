@@ -20,11 +20,11 @@ router.get('/login', function (req, res) {
 
   if (!req.session.loggedIn) {
   
-    res.render('index', { loggedInErr: req.session.loggedInErr,emailErr: req.session.emailErr,passwordErr: req.session.passwordErr,emtyErr: req.session.emtyErr });
+    res.render('index', { loggedInErr: req.session.loggedInErr,emailErr: req.session.emailErr,passwordErr: req.session.passwordErr });
     req.session.loggedInErr = false;
     req.session.emailErr = false;
     req.session.passwordErr=false;
-    req.session.emtyErr=false;
+   
   }
   else {
     res.redirect('/');
@@ -36,13 +36,7 @@ router.post('/submit',(req,res)=>{
   let email=req.body.email;
   let password=req.body.password;
 
-  if(email==""||password==""){
-
-    req.session.emtyErr=true;
-    res.redirect('/');
-
-  }else{
-    if( email==="asif@gmail.com"){
+  if( email==="asif@gmail.com"){
       if(password==='12345') {
         req.session.loggedIn = true;
         req.session.userid=req.body.email;
@@ -51,12 +45,13 @@ router.post('/submit',(req,res)=>{
         req.session.passwordErr = true;
         res.redirect('/')
       }
-    }else{
+  }else{
+    
       req.session.emailErr = true;
       res.redirect('/')
     
-    }
   }
+  
 })
 
 router.get('/logout',(req,res)=>{
